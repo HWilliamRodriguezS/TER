@@ -1,25 +1,28 @@
 package tresEnRaya;
 
 import util.Coordenada;
+import util.Intervalo;
 import gestorIO.FactoriaGestorIO;
 import gestorIO.GestorIO;
 
 public class Tablero {
-	private final char fichas[][] = new char[TresEnRaya.DIM][TresEnRaya.DIM];
+	private final char fichas[][] = new char[getDim()][getDim()];
 	private int cont;
 	private static final char VACIO = '-';
+	private static int dim = 3;
+	private static Intervalo rango = new Intervalo(0, getDim() -1);
 
 	
 	public Tablero() {
-		for (int i = 0; i < TresEnRaya.DIM; i++)
-			for (int j = 0; j < TresEnRaya.DIM; j++)
+		for (int i = 0; i < getDim(); i++)
+			for (int j = 0; j < getDim(); j++)
 				fichas[i][j] = Tablero.VACIO;
 	}
 
 	public void mostrar() {
 		GestorIO gestorIO = FactoriaGestorIO.getInstance();
-		for (int i = 0; i < TresEnRaya.DIM; i++) {
-			for (int j = 0; j < TresEnRaya.DIM; j++) {
+		for (int i = 0; i < getDim(); i++) {
+			for (int j = 0; j < getDim(); j++) {
 				gestorIO.out(fichas[i][j]);
 				gestorIO.out(' ');
 			}
@@ -33,15 +36,15 @@ public class Tablero {
 	public boolean hayTER(char color) {
 		int diagonal = 0;
 		int inversa = 0;
-		int filas[] = new int[TresEnRaya.DIM];
-		int columnas[] = new int[TresEnRaya.DIM];
+		int filas[] = new int[getDim()];
+		int columnas[] = new int[getDim()];
 
-		for (int j = 0; j < TresEnRaya.DIM; j++){
+		for (int j = 0; j < getDim(); j++){
 			columnas[j] = 0;
 		}
-		for (int i = 0; i < TresEnRaya.DIM; i++) {
+		for (int i = 0; i < getDim(); i++) {
 			filas[i] = 0;
-			for (int j = 0; j < TresEnRaya.DIM; j++)
+			for (int j = 0; j < getDim(); j++)
 				if (fichas[i][j] == color) {
 					if (i == j)
 						diagonal++;
@@ -51,11 +54,11 @@ public class Tablero {
 					columnas[j]++;
 				}
 		}
-		if ((diagonal == TresEnRaya.DIM) || (inversa == TresEnRaya.DIM))
+		if ((diagonal == getDim()) || (inversa == getDim()))
 			return true;
 		else
-			for (int i = 0; i < TresEnRaya.DIM; i++)
-				if ((columnas[i] == TresEnRaya.DIM) || (filas[i] == TresEnRaya.DIM))
+			for (int i = 0; i < getDim(); i++)
+				if ((columnas[i] == getDim()) || (filas[i] == getDim()))
 					return true;
 		return false;
 	}
@@ -99,7 +102,23 @@ public class Tablero {
 	}
 
 	public boolean lleno() {
-		return cont==TresEnRaya.DIM*2;
+		return cont==getDim()*2;
 	}
 
+	public static int getDim() {
+		return dim;
+	}
+
+	public void setDim(int dim) {
+		this.dim = dim;
+	}
+
+	public static Intervalo getRango() {
+		return rango;
+	}
+
+	public void setRango(Intervalo rango) {
+		this.rango = rango;
+	}
+		
 }

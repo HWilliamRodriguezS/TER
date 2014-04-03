@@ -39,8 +39,8 @@ public class TableroTest {
 
 	@Test
 	public void testTableroInicialVacio() {
-		for (int i = 0; i < TresEnRaya.DIM; i++) {
-			for (int j = 0; j < TresEnRaya.DIM; j++) {
+		for (int i = 0; i < Tablero.getDim(); i++) {
+			for (int j = 0; j < Tablero.getDim(); j++) {
 				this.testCasillaVacia(new Coordenada(i, j));
 			}
 		}
@@ -48,8 +48,8 @@ public class TableroTest {
 
 	private void testPonerYSacar(Coordenada destino, char color) {
 		this.tablero.poner(destino, color);
-		for (int i = 0; i < TresEnRaya.DIM; i++) {
-			for (int j = 0; j < TresEnRaya.DIM; j++) {
+		for (int i = 0; i < Tablero.getDim(); i++) {
+			for (int j = 0; j < Tablero.getDim(); j++) {
 				Coordenada coordenada = new Coordenada(i, j);
 				if (coordenada.iguales(destino)) {
 					this.testCasillaOcupada(coordenada, color);
@@ -59,8 +59,8 @@ public class TableroTest {
 			}
 		}
 		this.tablero.sacar(destino);
-		for (int i = 0; i < TresEnRaya.DIM; i++) {
-			for (int j = 0; j < TresEnRaya.DIM; j++) {
+		for (int i = 0; i < Tablero.getDim(); i++) {
+			for (int j = 0; j < Tablero.getDim(); j++) {
 				Coordenada coordenada = new Coordenada(i, j);
 				this.testCasillaVacia(coordenada);
 			}
@@ -262,7 +262,7 @@ public class TableroTest {
 	@Test
 	public void testTableroLleno(){
 		Tablero tablero = new Tablero();
-		for (int i=0; i<TresEnRaya.DIM; i++){
+		for (int i=0; i<Tablero.getDim(); i++){
 			tablero.poner(new Coordenada(0,i), 'x');
 			tablero.poner(new Coordenada(1,i), 'o');
 		}
