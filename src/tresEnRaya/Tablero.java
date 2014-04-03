@@ -1,12 +1,16 @@
 package tresEnRaya;
 
 import util.Coordenada;
+import util.Intervalo;
 import gestorIO.FactoriaGestorIO;
 import gestorIO.GestorIO;
 
 public class Tablero {
+	
 	private final char fichas[][] = new char[TresEnRaya.DIM][TresEnRaya.DIM];
 	private int cont;
+	public static final int DIM = 3;
+	public static final Intervalo RANGO = new Intervalo(0, TresEnRaya.DIM-1);
 	private static final char VACIO = '-';
 
 	

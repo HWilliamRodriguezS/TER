@@ -44,20 +44,20 @@ public class TresEnRaya {
 // TresEnRaya
 
 // refactorizar:
-// método jugar con un solo bucle con cuerpo alternativo para poner y mover según fichas puestas
-// optimizar tresEnRaya buscando solo la del jugador posible
-// mover DIM y RANGO a Tablero
-// turno con arranque aleatorio
+// método jugar con un solo bucle con cuerpo alternativo para poner y mover según fichas puestas  **Realizado**
+// optimizar tresEnRaya buscando solo la del jugador posible									  **Realizado**
+// mover DIM y RANGO a Tablero																		
+// turno con arranque aleatorio*
 // asociar Turno a Jugador
-// asociar Jugador a Tablero
+// asociar Jugador a Tablero*
 // mensajes de error en coordenadas erroneas
-// corregir que no se puede mover sobre el mismo sitio
+// corregir que no se puede mover sobre el mismo sitio*
 // concentrar color en tablero en static {'x','o'}
-// desacoplar color de los caracteres particulares
+// desacoplar color de los caracteres particulares*
 // desacoplar coordenada de TresEnRaya con clase derivada CoordenadaTresEnRaya
-// - moviendo válida
+// - moviendo válida*
 // - redefiniendo recoger
-// En Tablero "fichas[coordenada.getFila()][coordenada.getColumna()]" DRY con get/set
+// En Tablero "fichas[coordenada.getFila()][coordenada.getColumna()]" DRY con get/set*
 // recodificar Tablero como gestor de Coordenadas
-// jugar contra la máquina y demo con JugadorAutomático y arranque paramétrico
+// jugar contra la máquina y demo con JugadorAutomático y arranque paramétrico*
 
