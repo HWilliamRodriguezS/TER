@@ -24,6 +24,7 @@ public class Jugador {
 			destino.recoger("Coordenada destino de puesta");
 		} while (!destino.valida() || tablero.ocupado(destino));
 		assert tablero.vacio(destino);
+		assert !tablero.igualOrigen(destino);
 		tablero.poner(destino, color);
 		assert tablero.ocupado(destino, color);
 	}

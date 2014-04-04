@@ -1,5 +1,8 @@
 package tresEnRaya;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import util.Coordenada;
 import util.Intervalo;
 import gestorIO.FactoriaGestorIO;
@@ -11,6 +14,8 @@ public class Tablero {
 	private static final char VACIO = '-';
 	private static int dim = 3;
 	private static Intervalo rango = new Intervalo(0, getDim() -1);
+	private List<Jugador> jugadores = new ArrayList<Jugador>();
+	private Coordenada origen;
 
 	
 	public Tablero() {
@@ -97,10 +102,19 @@ public class Tablero {
 		assert coordenada.valida();
 		assert this.ocupado(coordenada);
 		cont--;
+		origen = coordenada;
 		fichas[coordenada.getFila()][coordenada.getColumna()] = Tablero.VACIO;
 		assert this.vacio(coordenada);
 	}
 
+	public boolean igualOrigen(Coordenada coordenada)
+	{
+		assert coordenada!=null;
+		assert coordenada.valida();
+		assert !this.ocupado(coordenada);
+		return origen.iguales(coordenada);
+	}
+	
 	public boolean lleno() {
 		return cont==getDim()*2;
 	}
@@ -109,16 +123,17 @@ public class Tablero {
 		return dim;
 	}
 
-	public void setDim(int dim) {
-		this.dim = dim;
-	}
-
 	public static Intervalo getRango() {
 		return rango;
 	}
 
-	public void setRango(Intervalo rango) {
-		this.rango = rango;
+	public Jugador getJugador(int index) {
+		return jugadores.get(index);
 	}
-		
+
+	public void setJugador(Jugador jugador) {
+		this.jugadores.add(jugador);
+	}	
+	
+	
 }

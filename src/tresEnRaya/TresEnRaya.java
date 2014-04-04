@@ -6,12 +6,14 @@ public class TresEnRaya {
 	//public static final int DIM = 3;
 	//public static final Intervalo RANGO = new Intervalo(0, TresEnRaya.DIM-1);
 	private final Tablero tablero = new Tablero();
-	private final Jugador jugadores[] = new Jugador[2];
+	//private final Jugador jugadores[] = new Jugador[2];
 	private final Turno turno = new Turno();
 
 	public TresEnRaya() {
-		jugadores[0] = new Jugador('o');
-		jugadores[1] = new Jugador('x');
+	//	jugadores[0] = new Jugador('o');
+		//jugadores[1] = new Jugador('x');
+		tablero.setJugador(new Jugador('o'));
+		tablero.setJugador(new Jugador('x'));
 //		for (int i = 0; i < jugadores.length; i++) {
 //			jugadores[1] = new Jugador(i);
 //		}
@@ -20,16 +22,16 @@ public class TresEnRaya {
 	public void jugar() {
 		tablero.mostrar();
 		do {
-			if (!tablero.lleno()){
-				jugadores[turno.toca()].poner(tablero);
+			if (!tablero.lleno()){				
+				tablero.getJugador(turno.toca()).poner(tablero);
 				// turno.toca().poner(;
 			}else{
-				jugadores[turno.toca()].mover(tablero);
+				tablero.getJugador(turno.toca()).mover(tablero);
 			}
 			tablero.mostrar();
 			turno.cambiar();	
-		}while (!tablero.hayTER(jugadores[turno.noToca()].getColor()));
-		jugadores[turno.toca()].victoria();
+		}while (!tablero.hayTER(tablero.getJugador(turno.toca()).getColor()));
+		tablero.getJugador(turno.toca()).victoria();
 	}
 
 	public static void main(String arg[]) {
