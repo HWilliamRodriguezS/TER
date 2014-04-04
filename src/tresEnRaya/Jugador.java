@@ -6,7 +6,7 @@ import gestorIO.GestorIO;
 
 public class Jugador {
 	private char color;
-	
+
 	public char getColor() {
 		return color;
 	}
@@ -44,7 +44,8 @@ public class Jugador {
 	public void victoria() {
 		FactoriaGestorIO.getInstance().out("las " + color + " han ganda....");
 	}
-	
-	
+
+
 
 }
+

@@ -17,7 +17,7 @@ public class Tablero {
 	private List<Jugador> jugadores = new ArrayList<Jugador>();
 	private Coordenada origen;
 
-	
+
 	public Tablero() {
 		for (int i = 0; i < getDim(); i++)
 			for (int j = 0; j < getDim(); j++)
@@ -73,7 +73,7 @@ public class Tablero {
 		assert coordenada.valida();
 		return getFicha(coordenada) != Tablero.VACIO;
 	}
-	
+
 	public boolean ocupado(Coordenada coordenada, char color) {
 		assert coordenada!=null;
 		assert coordenada.valida();
@@ -114,6 +114,14 @@ public class Tablero {
 		assert !this.ocupado(coordenada);
 		return origen.iguales(coordenada);
 	}
+
+	public boolean igualOrigen(Coordenada coordenada)
+	{
+		assert coordenada!=null;
+		assert coordenada.valida();
+		assert !this.ocupado(coordenada);
+		return origen.iguales(coordenada);
+	}
 	
 	public boolean lleno() {
 		return cont==getDim()*2;
@@ -144,4 +152,4 @@ public class Tablero {
 	}
 	
 			
-}
+}	

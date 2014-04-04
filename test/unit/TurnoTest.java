@@ -37,6 +37,29 @@ public class TurnoTest {
     	turno.cambiar();
     	this.toca(0);
     }
+    
+    @Test
+    public void testTurnoAleatorio(){
+    	int ejecuciones = 1000;
+    	int toca1 = 0;
+    	int toca0 = 0;
+    	for(int i= 0; i < ejecuciones ;i++){
+    		this.turno.aleatorio();
+    		int turno = this.turno.toca();
+    			switch (turno) {
+				case 0:
+					toca0++;
+					break;
+				case 1:
+					toca1++;
+					break;
+
+    		}
+    	}
+    	assertTrue(toca0 >= 400);
+    	assertTrue(toca1 >= 400);
+    	
+    }
 
 }
 

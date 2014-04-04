@@ -15,7 +15,7 @@ import util.Coordenada;
 public class TableroTest {
 
 	private Tablero tablero;
-
+  
 	@Before
 	public void ini() {
 		this.tablero = new Tablero();

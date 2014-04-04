@@ -14,6 +14,7 @@ public class TresEnRaya {
 		//jugadores[1] = new Jugador('x');
 		tablero.setJugador(new Jugador('o'));
 		tablero.setJugador(new Jugador('x'));
+		this.turno.aleatorio();
 //		for (int i = 0; i < jugadores.length; i++) {
 //			jugadores[1] = new Jugador(i);
 //		}
@@ -62,4 +63,3 @@ public class TresEnRaya {
 //**Realizado** a En Tablero "fichas[coordenada.getFila()][coordenada.getColumna()]" DRY con get/set  
 //w recodificar Tablero como gestor de Coordenadas
 //a jugar contra la máquina y demo con JugadorAutomático y arranque paramétrico
-
