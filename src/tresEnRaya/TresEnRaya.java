@@ -14,6 +14,7 @@ public class TresEnRaya {
 		//jugadores[1] = new Jugador('x');
 		tablero.setJugador(new Jugador('o'));
 		tablero.setJugador(new Jugador('x'));
+		this.turno.aleatorio();
 //		for (int i = 0; i < jugadores.length; i++) {
 //			jugadores[1] = new Jugador(i);
 //		}
