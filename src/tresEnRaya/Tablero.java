@@ -114,14 +114,6 @@ public class Tablero {
 		assert !this.ocupado(coordenada);
 		return origen.iguales(coordenada);
 	}
-
-	public boolean igualOrigen(Coordenada coordenada)
-	{
-		assert coordenada!=null;
-		assert coordenada.valida();
-		assert !this.ocupado(coordenada);
-		return origen.iguales(coordenada);
-	}
 	
 	public boolean lleno() {
 		return cont==getDim()*2;
