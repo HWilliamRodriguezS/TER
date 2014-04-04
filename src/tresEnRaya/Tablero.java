@@ -71,14 +71,14 @@ public class Tablero {
 	public boolean ocupado(Coordenada coordenada) {
 		assert coordenada!=null;
 		assert coordenada.valida();
-		return fichas[coordenada.getFila()][coordenada.getColumna()] != Tablero.VACIO;
+		return getFicha(coordenada) != Tablero.VACIO;
 	}
 	
 	public boolean ocupado(Coordenada coordenada, char color) {
 		assert coordenada!=null;
 		assert coordenada.valida();
 		assert color=='x' || color=='o';
-		return fichas[coordenada.getFila()][coordenada.getColumna()] == color;
+		return getFicha(coordenada) == color;
 	}
 
 	public void poner(Coordenada coordenada, char color) {
@@ -87,7 +87,7 @@ public class Tablero {
 		assert color=='x' || color=='o';
 		assert this.vacio(coordenada);
 		cont++;
-		fichas[coordenada.getFila()][coordenada.getColumna()] = color;
+		setFicha(coordenada,color);
 		assert this.ocupado(coordenada, color);
 	}
 
@@ -103,7 +103,7 @@ public class Tablero {
 		assert this.ocupado(coordenada);
 		cont--;
 		origen = coordenada;
-		fichas[coordenada.getFila()][coordenada.getColumna()] = Tablero.VACIO;
+		setFicha(coordenada,Tablero.VACIO);
 		assert this.vacio(coordenada);
 	}
 
@@ -133,7 +133,15 @@ public class Tablero {
 
 	public void setJugador(Jugador jugador) {
 		this.jugadores.add(jugador);
-	}	
+	}
+
+	public char getFicha(Coordenada coordenada) {
+		return fichas[coordenada.getFila()][coordenada.getColumna()];
+	}
 	
+	public void setFicha(Coordenada coordenada, char color) {
+		fichas[coordenada.getFila()][coordenada.getColumna()] = color;
+	}
 	
+			
 }
