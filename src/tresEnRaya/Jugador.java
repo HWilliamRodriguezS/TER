@@ -6,7 +6,7 @@ import gestorIO.GestorIO;
 
 public class Jugador {
 	private char color;
-	
+
 	public char getColor() {
 		return color;
 	}
@@ -24,6 +24,7 @@ public class Jugador {
 			destino.recoger("Coordenada destino de puesta");
 		} while (!destino.valida() || tablero.ocupado(destino));
 		assert tablero.vacio(destino);
+		assert !tablero.igualOrigen(destino);
 		tablero.poner(destino, color);
 		assert tablero.ocupado(destino, color);
 	}
@@ -43,7 +44,8 @@ public class Jugador {
 	public void victoria() {
 		FactoriaGestorIO.getInstance().out("las " + color + " han ganda....");
 	}
-	
-	
+
+
 
 }
+

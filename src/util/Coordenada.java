@@ -1,5 +1,6 @@
 package util;
 
+import tresEnRaya.Tablero;
 import tresEnRaya.TresEnRaya;
 import gestorIO.FactoriaGestorIO;
 import gestorIO.GestorIO;
@@ -15,13 +16,13 @@ public class Coordenada {
 	public Coordenada(int fila, int columna){
 		this.fila = fila;
 		this.columna = columna;
-		assert this.valida();
+		//assert this.valida();
 	}
 	
 	public boolean iguales(Coordenada coordenada){
 		assert coordenada!=null;
-		assert coordenada.valida();
-		assert this.valida();
+		//assert coordenada.valida();
+		//assert this.valida();
 		return this.fila == coordenada.fila &&
 				this.columna == coordenada.columna;
 	}
@@ -36,8 +37,8 @@ public class Coordenada {
 	}
 
 	public boolean valida() {
-		return TresEnRaya.RANGO.incluye(fila) &&
-				TresEnRaya.RANGO.incluye(columna);
+		return Tablero.getRango().incluye(fila) &&
+				Tablero.getRango().incluye(columna);
 	}
 
 	public int getFila() {
