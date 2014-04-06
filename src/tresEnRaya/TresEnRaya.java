@@ -50,7 +50,7 @@ public class TresEnRaya {
 //***Realizado** método jugar con un solo bucle con cuerpo alternativo para poner y mover según fichas puestas
 //***Realizado** optimizar tresEnRaya buscando solo la del jugador posible
 //**Realizado** mover DIM y RANGO a Tablero
-// turno con arranque aleatorio
+//**Realizado** turno con arranque aleatorio
 //w asociar Turno a Jugador
 //**Realizado**a asociar Jugador a Tablero
 //w mensajes de error en coordenadas erroneas
