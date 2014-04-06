@@ -7,14 +7,13 @@ public class TresEnRaya {
 	//public static final Intervalo RANGO = new Intervalo(0, TresEnRaya.DIM-1);
 	private final Tablero tablero = new Tablero();
 	//private final Jugador jugadores[] = new Jugador[2];
-	private final Turno turno = new Turno();
+	//private final Turno turno = new Turno();
 
 	public TresEnRaya() {
 	//	jugadores[0] = new Jugador('o');
 		//jugadores[1] = new Jugador('x');
 		tablero.setJugador(new Jugador('o'));
 		tablero.setJugador(new Jugador('x'));
-		this.turno.aleatorio();
 //		for (int i = 0; i < jugadores.length; i++) {
 //			jugadores[1] = new Jugador(i);
 //		}
@@ -24,15 +23,15 @@ public class TresEnRaya {
 		tablero.mostrar();
 		do {
 			if (!tablero.lleno()){				
-				tablero.getJugador(turno.toca()).poner(tablero);
-				// turno.toca().poner(;
+				tablero.getJugador(Jugador.turno.toca()).poner(tablero);
+				// Jugador.turno.toca().poner(;
 			}else{
-				tablero.getJugador(turno.toca()).mover(tablero);
+				tablero.getJugador(Jugador.turno.toca()).mover(tablero);
 			}
 			tablero.mostrar();
-			turno.cambiar();	
-		}while (!tablero.hayTER(tablero.getJugador(turno.toca()).getColor()));
-		tablero.getJugador(turno.toca()).victoria();
+			Jugador.turno.cambiar();	
+		}while (!tablero.hayTER(tablero.getJugador(Jugador.turno.toca()).getColor()));
+		tablero.getJugador(Jugador.turno.toca()).victoria();
 	}
 
 	public static void main(String arg[]) {
@@ -49,9 +48,9 @@ public class TresEnRaya {
 // refactorizar:
 //***Realizado** método jugar con un solo bucle con cuerpo alternativo para poner y mover según fichas puestas
 //***Realizado** optimizar tresEnRaya buscando solo la del jugador posible
-//**Realizado** mover DIM y RANGO a Tablero
-// turno con arranque aleatorio
-//w asociar Turno a Jugador
+//***Realizado** mover DIM y RANGO a Tablero
+//***Realizado** turno con arranque aleatorio
+//***Realizado**w asociar Turno a Jugador
 //**Realizado**a asociar Jugador a Tablero
 //w mensajes de error en coordenadas erroneas
 //**Realizado**a corregir que no se puede mover sobre el mismo sitio 

@@ -9,12 +9,16 @@ import tresEnRaya.Turno;
 public class TurnoTest {
    
     private Turno turno;
+    private int primero;
+    private int segundo;
 
     @Before
     public void ini() {
         turno = new Turno();
+        primero = (turno.toca() == 0 )?0:1;
+        segundo = (turno.toca() == 0 )?1:0;
     }
-
+    
     public void toca(int valor){
         assertTrue("Inicialmente, debe estar invisible", this.turno.toca()==valor);
         assertTrue("Inicialmente, debe estar invisible", this.turno.noToca()==(valor+1)%2);    	
@@ -22,20 +26,20 @@ public class TurnoTest {
     
     @Test
     public void testValoresIniciales() {
-    	this.toca(0);
+    	this.toca(primero);
     }
     
     @Test
     public void testCamiar() {
     	turno.cambiar();
-    	this.toca(1);
+    	this.toca(segundo);
     }
     
     @Test
     public void testRecamiar() {
     	turno.cambiar();
     	turno.cambiar();
-    	this.toca(0);
+    	this.toca(primero);
     }
     
     @Test

@@ -1,12 +1,14 @@
 package unit;
 
-import org.junit.Test;
-
-import tresEnRaya.Tablero;
-import tresEnRaya.Jugador;
-import util.Coordenada;
+import static org.junit.Assert.assertTrue;
 import gestorIO.FactoriaGestorIO;
 import gestorIO.GestorIOStub;
+
+import org.junit.Test;
+
+import tresEnRaya.Jugador;
+import tresEnRaya.Tablero;
+import util.Coordenada;
 
 public class JugadorTest {
 
@@ -74,4 +76,17 @@ public class JugadorTest {
 			this.testPoner(tableros[i], coordenadas[i], colores[i]);
 		}
 	}
+	
+	@Test
+	public void turnoJugador(){
+		Jugador jugador1 = new Jugador('o');
+		Jugador jugador2 = new Jugador('x');
+		
+		assertTrue(jugador1.getTurno().toca() == jugador2.getTurno().toca() );
+		
+		jugador1.getTurno().cambiar();
+		assertTrue(jugador1.getTurno().toca() == jugador2.getTurno().toca() );
+		
+	}
+	
 }

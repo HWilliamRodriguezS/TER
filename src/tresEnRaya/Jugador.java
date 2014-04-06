@@ -6,6 +6,7 @@ import gestorIO.GestorIO;
 
 public class Jugador {
 	private char color;
+	public static final Turno turno = new Turno();
 
 	public char getColor() {
 		return color;
@@ -14,6 +15,10 @@ public class Jugador {
 	public Jugador(char color) {
 		assert color=='x' || color=='o';
 		this.color = color;
+	}
+
+	public Turno getTurno() {
+		return turno;
 	}
 
 	public void poner(Tablero tablero) {
