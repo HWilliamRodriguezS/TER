@@ -1,7 +1,5 @@
 package tresEnRaya;
 
-import util.Intervalo;
-
 public class TresEnRaya {
 	//public static final int DIM = 3;
 	//public static final Intervalo RANGO = new Intervalo(0, TresEnRaya.DIM-1);
@@ -53,7 +51,7 @@ public class TresEnRaya {
 //***Realizado**w asociar Turno a Jugador
 //**Realizado**a asociar Jugador a Tablero
 //w mensajes de error en coordenadas erroneas
-//**Realizado**a corregir que no se puede mover sobre el mismo sitio 
+//**Realizado**a corregir que no se puede mover sobre el mismo sitio
 //w concentrar color en tablero en static {'x','o'}
 //a desacoplar color de los caracteres particulares
 //w desacoplar coordenada de TresEnRaya con clase derivada CoordenadaTresEnRaya

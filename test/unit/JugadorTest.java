@@ -6,16 +6,16 @@ import gestorIO.GestorIOStub;
 
 import org.junit.Test;
 
+import tresEnRaya.CoordenadaTresEnRaya;
 import tresEnRaya.Jugador;
 import tresEnRaya.Tablero;
-import util.Coordenada;
 
 public class JugadorTest {
 
-	public void testPoner(String[] resultado, Coordenada[] coordenadas,
+	public void testPoner(String[] resultado, CoordenadaTresEnRaya[] coordenadas,
 			char color) {
 		GestorIOStub gestorIO = FactoriaGestorIO.getInstanceStub();
-		for(Coordenada coordenada: coordenadas){
+		for(CoordenadaTresEnRaya coordenada: coordenadas){
 			gestorIO.set(""+(coordenada.getFila()+1));
 			gestorIO.set(""+(coordenada.getColumna()+1));
 		}
@@ -24,7 +24,7 @@ public class JugadorTest {
 		Tablero tablero = new Tablero();
 		Jugador jugador = new Jugador(color);
 		
-		for(Coordenada coordenada: coordenadas){
+		for(CoordenadaTresEnRaya coordenada: coordenadas){
 			jugador.poner(tablero);
 			tablero.mostrar();		
 		}
@@ -59,13 +59,13 @@ public class JugadorTest {
 				{ "- - x \n", 
 				  "- - x \n", 
 				  "- - - \n" } };
-		Coordenada[][] coordenadas = { 
-				{ new Coordenada(1, 1) },
-				{ new Coordenada(0, 1),
-				  new Coordenada(1, 0),
-				  new Coordenada(2, 1) },
-				{ new Coordenada(0, 2),
-				  new Coordenada(1, 2) }};
+		CoordenadaTresEnRaya[][] coordenadas = { 
+				{ new CoordenadaTresEnRaya(1, 1) },
+				{ new CoordenadaTresEnRaya(0, 1),
+				  new CoordenadaTresEnRaya(1, 0),
+				  new CoordenadaTresEnRaya(2, 1) },
+				{ new CoordenadaTresEnRaya(0, 2),
+				  new CoordenadaTresEnRaya(1, 2) }};
 		char[] colores = { 
 				'x',  
 				'o', 

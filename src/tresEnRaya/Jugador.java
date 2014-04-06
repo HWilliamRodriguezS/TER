@@ -1,8 +1,6 @@
 package tresEnRaya;
 
-import util.Coordenada;
 import gestorIO.FactoriaGestorIO;
-import gestorIO.GestorIO;
 
 public class Jugador {
 	private char color;
@@ -24,7 +22,7 @@ public class Jugador {
 	public void poner(Tablero tablero) {
 		assert tablero!=null;
 		FactoriaGestorIO.getInstance().out("juega: " + color);
-		Coordenada destino = new Coordenada();
+		CoordenadaTresEnRaya destino = new CoordenadaTresEnRaya();
 		do {
 			destino.recoger("Coordenada destino de puesta");
 		} while (!destino.valida() || tablero.ocupado(destino));
@@ -36,7 +34,7 @@ public class Jugador {
 
 	public void mover(Tablero tablero) {
 		assert tablero!=null;
-		Coordenada origen = new Coordenada();
+		CoordenadaTresEnRaya origen = new CoordenadaTresEnRaya();
 		do {
 			origen.recoger("Coordenada origen de movimiento");
 		} while (!origen.valida() || !tablero.ocupado(origen, color));
