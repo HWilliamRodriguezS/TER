@@ -1,9 +1,8 @@
 package util;
 
-import tresEnRaya.Tablero;
-import tresEnRaya.TresEnRaya;
 import gestorIO.FactoriaGestorIO;
 import gestorIO.GestorIO;
+import tresEnRaya.Tablero;
 
 public class Coordenada {
 	

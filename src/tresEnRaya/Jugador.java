@@ -1,8 +1,7 @@
 package tresEnRaya;
 
-import util.Coordenada;
 import gestorIO.FactoriaGestorIO;
-import gestorIO.GestorIO;
+import util.Coordenada;
 
 public class Jugador {
 	private char color;
@@ -25,8 +24,12 @@ public class Jugador {
 		assert tablero!=null;
 		FactoriaGestorIO.getInstance().out("juega: " + color);
 		Coordenada destino = new Coordenada();
+		
+		
 		do {
-			destino.recoger("Coordenada destino de puesta");
+			String msg  = "Coordenada destino de puesta";
+			if(!destino.valida())msg  = "Coordenadas erroneas o fuera de rango";
+			destino.recoger(msg);
 		} while (!destino.valida() || tablero.ocupado(destino));
 		assert tablero.vacio(destino);
 		assert !tablero.igualOrigen(destino);

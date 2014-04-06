@@ -1,6 +1,5 @@
 package tresEnRaya;
 
-import util.Intervalo;
 
 public class TresEnRaya {
 	//public static final int DIM = 3;
@@ -52,7 +51,7 @@ public class TresEnRaya {
 //***Realizado** turno con arranque aleatorio
 //***Realizado**w asociar Turno a Jugador
 //**Realizado**a asociar Jugador a Tablero
-//w mensajes de error en coordenadas erroneas
+//**Realizado**w mensajes de error en coordenadas erroneas
 //**Realizado**a corregir que no se puede mover sobre el mismo sitio 
 //w concentrar color en tablero en static {'x','o'}
 //a desacoplar color de los caracteres particulares
