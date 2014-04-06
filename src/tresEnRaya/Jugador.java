@@ -23,8 +23,11 @@ public class Jugador {
 		assert tablero!=null;
 		FactoriaGestorIO.getInstance().out("juega: " + color);
 		CoordenadaTresEnRaya destino = new CoordenadaTresEnRaya();
+
 		do {
-			destino.recoger("Coordenada destino de puesta");
+			String msg  = "Coordenada destino de puesta";
+			if(!destino.valida())msg  = "Coordenadas erroneas o fuera de rango";
+			destino.recoger(msg);
 		} while (!destino.valida() || tablero.ocupado(destino));
 		assert tablero.vacio(destino);
 		assert !tablero.igualOrigen(destino);

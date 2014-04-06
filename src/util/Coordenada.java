@@ -2,6 +2,7 @@ package util;
 
 import gestorIO.FactoriaGestorIO;
 import gestorIO.GestorIO;
+import tresEnRaya.Tablero;
 
 public class Coordenada {
 	
