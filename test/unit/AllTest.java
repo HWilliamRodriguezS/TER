@@ -8,7 +8,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({JugadorTest.class,
 				TableroTest.class,
 				TurnoTest.class, 
-				CoordenadaTest.class})
+				CoordenadaTest.class,
+				CoordenadaTresEnRayaTest.class})
 public class AllTest {
 
 }

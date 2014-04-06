@@ -33,12 +33,7 @@ public class Coordenada {
 		fila = gestorIO.inInt()-1;
 		gestorIO.out("Dame columna: ");
 		columna = gestorIO.inInt()-1;
-	}
-
-	public boolean valida() {
-		return Tablero.getRango().incluye(fila) &&
-				Tablero.getRango().incluye(columna);
-	}
+	}	
 
 	public int getFila() {
 		return fila;

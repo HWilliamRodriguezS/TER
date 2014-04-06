@@ -1,6 +1,5 @@
 package tresEnRaya;
 
-
 public class TresEnRaya {
 	//public static final int DIM = 3;
 	//public static final Intervalo RANGO = new Intervalo(0, TresEnRaya.DIM-1);
@@ -55,7 +54,7 @@ public class TresEnRaya {
 //**Realizado**a corregir que no se puede mover sobre el mismo sitio 
 //**Realizado**w concentrar color en tablero en static {'x','o'}
 //**Realizado**a desacoplar color de los caracteres particulares
-//w desacoplar coordenada de TresEnRaya con clase derivada CoordenadaTresEnRaya
+//**Realizado**w desacoplar coordenada de TresEnRaya con clase derivada CoordenadaTresEnRaya
 // - moviendo válida
 // - redefiniendo recoger
 //**Realizado** a En Tablero "fichas[coordenada.getFila()][coordenada.getColumna()]" DRY con get/set  

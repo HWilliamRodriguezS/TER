@@ -4,16 +4,16 @@ import org.junit.Test;
 
 import java.util.Random;
 
-import util.Coordenada;
+import tresEnRaya.CoordenadaTresEnRaya;
 import tresEnRaya.Tablero;
 
 public class EficienciaTresEnRayaTest {
 
 	private final int muestraTableros = 1000000;
 
-	public Coordenada getCoordenadaAleatoria() {
+	public CoordenadaTresEnRaya getCoordenadaAleatoria() {
 		Random random = new Random();
-		return new Coordenada(random.nextInt(3), random.nextInt(3));
+		return new CoordenadaTresEnRaya(random.nextInt(3), random.nextInt(3));
 	}
 
 	@Test

@@ -3,7 +3,6 @@ package tresEnRaya;
 import java.util.ArrayList;
 import java.util.List;
 
-import util.Coordenada;
 import util.Intervalo;
 import gestorIO.FactoriaGestorIO;
 import gestorIO.GestorIO;
@@ -15,8 +14,9 @@ public class Tablero {
 	private static int dim = 3;
 	private static Intervalo rango = new Intervalo(0, getDim() -1);
 	private List<Jugador> jugadores = new ArrayList<Jugador>();
-	private Coordenada origen;
 	public static char colores[] = {'x','o'};
+
+	private CoordenadaTresEnRaya origen;
 
 
 	public Tablero() {
@@ -36,8 +36,6 @@ public class Tablero {
 		}
 		gestorIO.out('\n');
 	}
-
-
 
 	public boolean hayTER(char color) {
 		int diagonal = 0;
@@ -69,20 +67,20 @@ public class Tablero {
 		return false;
 	}
 
-	public boolean ocupado(Coordenada coordenada) {
+	public boolean ocupado(CoordenadaTresEnRaya coordenada) {
 		assert coordenada!=null;
 		assert coordenada.valida();
 		return getFicha(coordenada) != Tablero.VACIO;
 	}
 
-	public boolean ocupado(Coordenada coordenada, char color) {
+	public boolean ocupado(CoordenadaTresEnRaya coordenada, char color) {
 		assert coordenada!=null;
 		assert coordenada.valida();
 		assert color==colores[0] || color==colores[1];
 		return getFicha(coordenada) == color;
 	}
 
-	public void poner(Coordenada coordenada, char color) {
+	public void poner(CoordenadaTresEnRaya coordenada, char color) {
 		assert coordenada!=null;
 		assert coordenada.valida();
 		assert color==colores[0] || color==colores[1];
@@ -92,13 +90,13 @@ public class Tablero {
 		assert this.ocupado(coordenada, color);
 	}
 
-	public boolean vacio(Coordenada coordenada) {
+	public boolean vacio(CoordenadaTresEnRaya coordenada) {
 		assert coordenada!=null;
 		assert coordenada.valida();
 		return (!this.ocupado(coordenada));
 	}
 
-	public void sacar(Coordenada coordenada) {
+	public void sacar(CoordenadaTresEnRaya coordenada) {
 		assert coordenada!=null;
 		assert coordenada.valida();
 		assert this.ocupado(coordenada);
@@ -108,7 +106,7 @@ public class Tablero {
 		assert this.vacio(coordenada);
 	}
 
-	public boolean igualOrigen(Coordenada coordenada)
+	public boolean igualOrigen(CoordenadaTresEnRaya coordenada)
 	{
 		assert coordenada!=null;
 		assert coordenada.valida();
@@ -137,11 +135,11 @@ public class Tablero {
 		this.jugadores.add(jugador);
 	}
 
-	public char getFicha(Coordenada coordenada) {
+	public char getFicha(CoordenadaTresEnRaya coordenada) {
 		return fichas[coordenada.getFila()][coordenada.getColumna()];
 	}
 	
-	public void setFicha(Coordenada coordenada, char color) {
+	public void setFicha(CoordenadaTresEnRaya coordenada, char color) {
 		fichas[coordenada.getFila()][coordenada.getColumna()] = color;
 	}
 	
