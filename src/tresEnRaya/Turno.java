@@ -4,6 +4,10 @@ public class Turno {
 	
 	private int valor = 0;
 	
+	public Turno(){
+		aleatorio();
+	}
+	
 	public void aleatorio(){
 		valor = new java.util.Random().nextInt(2);
 	}
