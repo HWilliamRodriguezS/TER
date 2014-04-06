@@ -53,8 +53,8 @@ public class TresEnRaya {
 //**Realizado**a asociar Jugador a Tablero
 //**Realizado**w mensajes de error en coordenadas erroneas
 //**Realizado**a corregir que no se puede mover sobre el mismo sitio 
-//w concentrar color en tablero en static {'x','o'}
-//a desacoplar color de los caracteres particulares
+//**Realizado**w concentrar color en tablero en static {'x','o'}
+//**Realizado**a desacoplar color de los caracteres particulares
 //w desacoplar coordenada de TresEnRaya con clase derivada CoordenadaTresEnRaya
 // - moviendo válida
 // - redefiniendo recoger

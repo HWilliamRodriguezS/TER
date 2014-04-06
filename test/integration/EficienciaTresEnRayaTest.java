@@ -23,15 +23,15 @@ public class EficienciaTresEnRayaTest {
 			tableros[i] = new Tablero();
 			try {
 				for (int j = 0; j < 3; j++) {
-					tableros[j].poner(this.getCoordenadaAleatoria(), 'x');
-					tableros[j].poner(this.getCoordenadaAleatoria(), 'o');
+					tableros[j].poner(this.getCoordenadaAleatoria(), Tablero.colores[0]);
+					tableros[j].poner(this.getCoordenadaAleatoria(), Tablero.colores[1]);
 				}
 			} catch (Exception ex) {
 			}
 		}
 		long inicio = System.currentTimeMillis();
 		for (Tablero tablero : tableros) {
-			tablero.hayTER('x');
+			tablero.hayTER(Tablero.colores[0]);
 		}
 		long fin = System.currentTimeMillis();
 		System.out.println("Tiempo: " + (fin - inicio));

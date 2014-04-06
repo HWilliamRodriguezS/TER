@@ -71,7 +71,7 @@ public class TableroTest {
 	public void testPonerYSacar() {
 		Coordenada[] coordenadas = { new Coordenada(0, 0),
 				new Coordenada(1, 2), new Coordenada(2, 2) };
-		char[] colores = { 'x', 'o', 'o' };
+		char[] colores = { Tablero.colores[0], Tablero.colores[1], Tablero.colores[1] };
 		assert coordenadas.length == colores.length;
 		for (int i = 0; i < coordenadas.length; i++) {
 			this.testPonerYSacar(coordenadas[i], colores[i]);
@@ -96,7 +96,7 @@ public class TableroTest {
 				{ new Coordenada(0, 0), new Coordenada(1, 0) },
 				{ new Coordenada(1, 2), new Coordenada(2, 1) },
 				{ new Coordenada(2, 2), new Coordenada(0, 0) } };
-		char[] colores = { 'x', 'o', 'o' };
+		char[] colores = { Tablero.colores[0], Tablero.colores[1], Tablero.colores[1] };
 		assert paresCoordenadas.length == colores.length;
 		for (int i = 0; i < paresCoordenadas.length; i++) {
 			this.testMover(colores[i], paresCoordenadas[i][0],
@@ -124,14 +124,14 @@ public class TableroTest {
 	}
 
 	private void testTresEnRayaEnFila(char color, int fila) {
-		this.testTresEnRaya('x', new Coordenada[] { new Coordenada(fila, 0),
+		this.testTresEnRaya(Tablero.colores[0], new Coordenada[] { new Coordenada(fila, 0),
 				new Coordenada(fila, 1), new Coordenada(fila, 2) });
 	}
 
 	@Test
 	public void testTresEnRayaEnFila() {
 		int[] filas = { 0, 1, 2 };
-		char[] colores = { 'x', 'o', 'o' };
+		char[] colores = { Tablero.colores[0], Tablero.colores[1], Tablero.colores[1] };
 		assert filas.length == colores.length;
 		for (int i = 0; i < filas.length; i++) {
 			this.testTresEnRayaEnFila(colores[i], filas[i]);
@@ -139,14 +139,14 @@ public class TableroTest {
 	}
 
 	private void testTresEnRayaEnColumna(char color, int columna) {
-		this.testTresEnRaya('o', new Coordenada[] { new Coordenada(0, columna),
+		this.testTresEnRaya(Tablero.colores[1], new Coordenada[] { new Coordenada(0, columna),
 				new Coordenada(1, columna), new Coordenada(2, columna) });
 	}
 
 	@Test
 	public void testTresEnRayaEnColumna() {
 		int[] columnas = { 0, 1, 2 };
-		char[] colores = { 'x', 'o', 'o' };
+		char[] colores = { Tablero.colores[0], Tablero.colores[1], Tablero.colores[1] };
 		assert columnas.length == colores.length;
 		for (int i = 0; i < columnas.length; i++) {
 			this.testTresEnRayaEnColumna(colores[i], columnas[i]);
@@ -157,14 +157,14 @@ public class TableroTest {
 	public void testTresEnRayaoEnDiagonalPrincipal() {
 		Coordenada[] coordenadas = { new Coordenada(0, 0),
 				new Coordenada(1, 1), new Coordenada(2, 2) };
-		this.testTresEnRaya('x', coordenadas);
+		this.testTresEnRaya(Tablero.colores[0], coordenadas);
 	}
 
 	@Test
 	public void testTresEnRayaoEnDiagonalSecundaria() {
 		Coordenada[] coordenadas = { new Coordenada(0, 2),
 				new Coordenada(1, 1), new Coordenada(2, 0) };
-		this.testTresEnRaya('o', coordenadas);
+		this.testTresEnRaya(Tablero.colores[1], coordenadas);
 	}
 
 	private void sacarFichas(Coordenada[] coordenadas) {
@@ -186,10 +186,10 @@ public class TableroTest {
 						new Coordenada(2, 2) },
 				{ new Coordenada(0, 1), new Coordenada(0, 2),
 						new Coordenada(2, 2) } };
-		char[] colores = { 'x', 'o' };
+		char[] colores = { Tablero.colores[0], Tablero.colores[1] };
 		assert triosCoordenadas.length == colores.length;
 		for (int i = 0; i < triosCoordenadas.length; i++) {
-			this.testNoTresEnRaya('x', triosCoordenadas[i]);
+			this.testNoTresEnRaya(Tablero.colores[0], triosCoordenadas[i]);
 		}
 	}
 	
@@ -246,11 +246,11 @@ public class TableroTest {
 				{ new Coordenada(0, 2) } };
 		char[][] colores = { 
 				{}, 
-				{ 'x', 
-				  'o', 
-				  'o', 
-				  'x' },
-				{ 'x' } };
+				{ Tablero.colores[0], 
+				  Tablero.colores[1], 
+				  Tablero.colores[1], 
+				  Tablero.colores[0] },
+				{ Tablero.colores[0] } };
 		assert tableros.length == coordenadas.length;
 		assert tableros.length == colores.length;
 		for (int i = 0; i < tableros.length; i++) {
@@ -263,8 +263,8 @@ public class TableroTest {
 	public void testTableroLleno(){
 		Tablero tablero = new Tablero();
 		for (int i=0; i<Tablero.getDim(); i++){
-			tablero.poner(new Coordenada(0,i), 'x');
-			tablero.poner(new Coordenada(1,i), 'o');
+			tablero.poner(new Coordenada(0,i), Tablero.colores[0]);
+			tablero.poner(new Coordenada(1,i), Tablero.colores[1]);
 		}
 		assertTrue(tablero.lleno());
 	}

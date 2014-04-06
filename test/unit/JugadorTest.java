@@ -67,9 +67,9 @@ public class JugadorTest {
 				{ new Coordenada(0, 2),
 				  new Coordenada(1, 2) }};
 		char[] colores = { 
-				'x',  
-				'o', 
-				'x' };
+				Tablero.colores[0],  
+				Tablero.colores[1], 
+				Tablero.colores[0] };
 		assert tableros.length == coordenadas.length;
 		assert tableros.length == colores.length;
 		for (int i=0; i<tableros.length; i++) {
@@ -79,8 +79,8 @@ public class JugadorTest {
 	
 	@Test
 	public void turnoJugador(){
-		Jugador jugador1 = new Jugador('o');
-		Jugador jugador2 = new Jugador('x');
+		Jugador jugador1 = new Jugador(Tablero.colores[1]);
+		Jugador jugador2 = new Jugador(Tablero.colores[0]);
 		
 		assertTrue(jugador1.getTurno().toca() == jugador2.getTurno().toca() );
 		

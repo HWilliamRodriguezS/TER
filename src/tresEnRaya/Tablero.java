@@ -16,6 +16,7 @@ public class Tablero {
 	private static Intervalo rango = new Intervalo(0, getDim() -1);
 	private List<Jugador> jugadores = new ArrayList<Jugador>();
 	private Coordenada origen;
+	public static char colores[] = {'x','o'};
 
 
 	public Tablero() {
@@ -77,14 +78,14 @@ public class Tablero {
 	public boolean ocupado(Coordenada coordenada, char color) {
 		assert coordenada!=null;
 		assert coordenada.valida();
-		assert color=='x' || color=='o';
+		assert color==colores[0] || color==colores[1];
 		return getFicha(coordenada) == color;
 	}
 
 	public void poner(Coordenada coordenada, char color) {
 		assert coordenada!=null;
 		assert coordenada.valida();
-		assert color=='x' || color=='o';
+		assert color==colores[0] || color==colores[1];
 		assert this.vacio(coordenada);
 		cont++;
 		setFicha(coordenada,color);
@@ -132,6 +133,7 @@ public class Tablero {
 	}
 
 	public void setJugador(Jugador jugador) {
+		if(this.jugadores.size() < 2)
 		this.jugadores.add(jugador);
 	}
 

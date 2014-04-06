@@ -12,7 +12,7 @@ public class Jugador {
 	}
 
 	public Jugador(char color) {
-		assert color=='x' || color=='o';
+		//assert color=='x' || color=='o';
 		this.color = color;
 	}
 
