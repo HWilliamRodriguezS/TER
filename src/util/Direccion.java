@@ -1,0 +1,7 @@
+package util;
+
+public enum Direccion {
+	VERTICAL,HRIZONTAL,DIAGONAL_PRINCIPAL,DIAGONAL_SECUNDARIA,SIN_DIRECCION
+}
+
+

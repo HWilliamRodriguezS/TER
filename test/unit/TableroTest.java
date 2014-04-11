@@ -10,6 +10,8 @@ import org.junit.Test;
 
 import tresEnRaya.CoordenadaTresEnRaya;
 import tresEnRaya.Tablero;
+import util.Coordenada;
+import util.Direccion;
 
 public class TableroTest {
 
@@ -272,13 +274,43 @@ public class TableroTest {
 	@Test
 	public void testIgualOrigen(){
 		CoordenadaTresEnRaya origen = new CoordenadaTresEnRaya(0, 0);
-		CoordenadaTresEnRaya destino = new CoordenadaTresEnRaya(1, 0);
+		CoordenadaTresEnRaya destino = new CoordenadaTresEnRaya(0, 0);
 			
 		this.tablero.poner(origen, 'x');		
 		this.tablero.sacar(origen);
 		this.tablero.poner(destino, 'x');
 		
-		assertFalse(tablero.igualOrigen(destino) );			   
+		assertTrue(tablero.igualOrigen(destino) );			   
+	}
+	
+	
+	public void testDireccion(Direccion direccion,
+			CoordenadaTresEnRaya coordenada_1, CoordenadaTresEnRaya coordenada_2) {
+		assertTrue(this.tablero.direccion(coordenada_1, coordenada_2) == direccion);
+	}
+	
+	@Test
+	public void testDireccion() {
+		
+		Direccion [] direcciones = { 				
+				Direccion.HRIZONTAL, 
+				Direccion.VERTICAL, 
+				Direccion.DIAGONAL_PRINCIPAL, 
+				Direccion.DIAGONAL_SECUNDARIA,
+				Direccion.SIN_DIRECCION};
+		
+		CoordenadaTresEnRaya[][] paresCoordenadas = {
+				{new CoordenadaTresEnRaya(2,0), new CoordenadaTresEnRaya(2,1)},
+				{new CoordenadaTresEnRaya(0,2), new CoordenadaTresEnRaya(1,2)},
+				{new CoordenadaTresEnRaya(0,0), new CoordenadaTresEnRaya(2,2)},
+				{new CoordenadaTresEnRaya(2,0), new CoordenadaTresEnRaya(1,1)},
+				{new CoordenadaTresEnRaya(2,0), new CoordenadaTresEnRaya(0,1)}};
+		int i = 0;
+		for(CoordenadaTresEnRaya[] parCoordenadas : paresCoordenadas){
+			this.testDireccion(direcciones[i], parCoordenadas[0], parCoordenadas[1]);
+			i++;
+		}
+		
 	}
 
 }

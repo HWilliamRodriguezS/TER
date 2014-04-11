@@ -3,6 +3,8 @@ package tresEnRaya;
 import java.util.ArrayList;
 import java.util.List;
 
+import util.Coordenada;
+import util.Direccion;
 import util.Intervalo;
 import gestorIO.FactoriaGestorIO;
 import gestorIO.GestorIO;
@@ -135,12 +137,41 @@ public class Tablero {
 		this.jugadores.add(jugador);
 	}
 
-	public char getFicha(CoordenadaTresEnRaya coordenada) {
+	private char getFicha(CoordenadaTresEnRaya coordenada) {
 		return fichas[coordenada.getFila()][coordenada.getColumna()];
 	}
 	
-	public void setFicha(CoordenadaTresEnRaya coordenada, char color) {
+	private void setFicha(CoordenadaTresEnRaya coordenada, char color) {
 		fichas[coordenada.getFila()][coordenada.getColumna()] = color;
+	}
+
+	public Direccion direccion(CoordenadaTresEnRaya coordenada_1, CoordenadaTresEnRaya coordenada_2) {
+		
+		Direccion direccion = Direccion.SIN_DIRECCION; 
+		
+		if(coordenada_1.getFila() == coordenada_2.getFila())
+		{
+			direccion = Direccion.HRIZONTAL;
+		}else if (coordenada_1.getColumna() == coordenada_2.getColumna())
+		{
+			direccion = Direccion.VERTICAL;
+		}else if (digPrincipal(coordenada_1) && digPrincipal(coordenada_2))
+		{
+			direccion = Direccion.DIAGONAL_PRINCIPAL;
+		}else if(digSecundaria(coordenada_1) && digSecundaria(coordenada_2))
+		{
+			direccion = Direccion.DIAGONAL_SECUNDARIA;
+		}		
+		
+		return direccion;
+	}
+
+	private boolean digPrincipal(CoordenadaTresEnRaya coordenada) {
+		return (coordenada.getFila() == coordenada.getColumna());
+	}
+	
+	private boolean digSecundaria(CoordenadaTresEnRaya coordenada) {
+		return (coordenada.getFila() + coordenada.getColumna() == dim - 1);
 	}
 	
 			
