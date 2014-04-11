@@ -9,7 +9,8 @@ import org.junit.runners.Suite.SuiteClasses;
 				TableroTest.class,
 				TurnoTest.class, 
 				CoordenadaTest.class,
-				CoordenadaTresEnRayaTest.class})
+				CoordenadaTresEnRayaTest.class,
+				JugadorAutomaticoTest.class})
 public class AllTest {
 
 }
